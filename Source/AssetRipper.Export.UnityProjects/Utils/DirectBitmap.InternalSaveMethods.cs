@@ -12,18 +12,18 @@ namespace AssetRipper.Export.UnityProjects.Utils
 		{
 			//BmpWriter.WriteBmp(Bits, Width, Height, stream);
 			//return true;
-			if (OperatingSystem.IsWindows())
+			/*if (OperatingSystem.IsWindows())
 			{
 				using Bitmap bitmap = ToSystemBitmap();
 				bitmap.Save(stream, ImageFormat.Bmp);
 				return true;
 			}
 			else
-			{
-				using Image<Bgra32> image = ToImageSharp();
-				image.SaveAsBmp(stream);
-				return true;
-			}
+			{*/
+			using Image<Bgra32> image = ToImageSharp();
+			image.SaveAsBmp(stream);
+			return true;
+			//}
 		}
 
 		public async Task SaveAsBmpAsync(Stream stream)
@@ -35,18 +35,19 @@ namespace AssetRipper.Export.UnityProjects.Utils
 
 		public bool SaveAsGif(Stream stream)
 		{
-			if (OperatingSystem.IsWindows())
+			// disabling locally, method broken on my machine
+			/*if (OperatingSystem.IsWindows())
 			{
 				using Bitmap bitmap = ToSystemBitmap();
 				bitmap.Save(stream, ImageFormat.Gif);
 				return true;
 			}
 			else
-			{
-				using Image<Bgra32> image = ToImageSharp();
-				image.SaveAsGif(stream);
-				return true;
-			}
+			{*/
+			using Image<Bgra32> image = ToImageSharp();
+			image.SaveAsGif(stream);
+			return true;
+			//}
 		}
 
 		public async Task SaveAsGifAsync(Stream stream)
@@ -57,18 +58,20 @@ namespace AssetRipper.Export.UnityProjects.Utils
 
 		public bool SaveAsJpeg(Stream stream)
 		{
-			if (OperatingSystem.IsWindows())
+			// disabling locally, method broken on my machine
+
+			/*if (OperatingSystem.IsWindows())
 			{
 				using Bitmap bitmap = ToSystemBitmap();
 				bitmap.Save(stream, ImageFormat.Jpeg);
 				return true;
 			}
 			else
-			{
-				using Image<Bgra32> image = ToImageSharp();
-				image.SaveAsJpeg(stream);
-				return true;
-			}
+			{*/
+			using Image<Bgra32> image = ToImageSharp();
+			image.SaveAsJpeg(stream);
+			return true;
+			//}
 		}
 
 		public async Task SaveAsJpegAsync(Stream stream)
@@ -92,18 +95,20 @@ namespace AssetRipper.Export.UnityProjects.Utils
 
 		public bool SaveAsPng(Stream stream)
 		{
-			if (OperatingSystem.IsWindows())
+			// disabling locally, method broken on my machine
+
+			/*if (OperatingSystem.IsWindows())
 			{
 				using Bitmap bitmap = ToSystemBitmap();
 				bitmap.Save(stream, ImageFormat.Png);
 				return true;
 			}
 			else
-			{
-				using Image<Bgra32> image = ToImageSharp();
-				image.SaveAsPng(stream);
-				return true;
-			}
+			{*/
+			using Image<Bgra32> image = ToImageSharp();
+			image.SaveAsPng(stream);
+			return true;
+			//}
 		}
 
 		public async Task SaveAsPngAsync(Stream stream)
@@ -127,18 +132,20 @@ namespace AssetRipper.Export.UnityProjects.Utils
 
 		public bool SaveAsTiff(Stream stream)
 		{
-			if (OperatingSystem.IsWindows())
+			// disabling locally, method broken on my machine
+
+			/*if (OperatingSystem.IsWindows())
 			{
 				using Bitmap bitmap = ToSystemBitmap();
 				bitmap.Save(stream, ImageFormat.Tiff);
 				return true;
 			}
 			else
-			{
-				using Image<Bgra32> image = ToImageSharp();
-				image.SaveAsTiff(stream);
-				return true;
-			}
+			{*/
+			using Image<Bgra32> image = ToImageSharp();
+			image.SaveAsTiff(stream);
+			return true;
+			//}
 		}
 
 		public async Task SaveAsTiffAsync(Stream stream)
@@ -160,7 +167,7 @@ namespace AssetRipper.Export.UnityProjects.Utils
 			await image.SaveAsWebpAsync(stream);
 		}
 
-		[SupportedOSPlatform("windows")]
+		//[SupportedOSPlatform("windows")]
 		private Bitmap ToSystemBitmap()
 		{
 			return new Bitmap(Width, Height * Depth, Stride, PixelFormat.Format32bppArgb, m_bitsHandle.AddrOfPinnedObject());
